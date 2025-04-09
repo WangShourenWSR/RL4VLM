@@ -14,13 +14,23 @@ Then activate the environment and install the required packages:
 conda activate vrenv
 cd <path-to-this-repo>
 pip install -e ../LLaVA
+conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -e ../gym-cards
-pip install gymnasium[atari,accept-rom-license]
+pip install "gymnasium[atari,accept-rom-license]==0.29.1"
 pip install stable-baselines3 wandb deepspeed sentencepiece git+https://github.com/openai/CLIP.git
-pip install xformers
+pip install stable-baselines3==2.4.0 wandb==0.15.12 deepspeed==0.14.1 sentencepiece==0.1.99 open-clip-torch==2.32.0
+pip install xformers==0.0.23.post1
 ```
 
 Note to follow the order of the installation commands above. Specifically, `LLaVA` should be installed first, and `xformers` should be installed at last.
+
+Notes:
+1. Replaced `pip install gymnasium[atari,accept-rom-license]` with `pip install "gymnasium[atari,accept-rom-license]==0.29.1"`
+Because, seems since v1.0.0 some core functions are changed
+
+2. Need to install pytorch 2.1.2 manually
+
+3. Have to specify the version for xformers
 
 ## Reproduction
 
