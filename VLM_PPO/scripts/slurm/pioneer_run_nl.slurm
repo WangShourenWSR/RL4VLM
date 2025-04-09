@@ -11,6 +11,10 @@
 #SBATCH --mem=64G
 #SBATCH --time=48:00:00
 
+# Select CUDA module on HPC
+# module purge
+module load CUDA/12.1.1
+
 # 可选：激活你的 Conda 环境
 source ~/.bashrc
 conda activate vrenv
